@@ -11,11 +11,16 @@
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
 .then( resource => {
-    console.log(resource);
+   
     resource.data.topics.forEach(element => {
         topics.appendChild(TabComponent(element));
     });
 })
+.catch(error => {
+    console.log('The data was not returned', error);
+})
+
+
 
 function TabComponent (topic) {
     const tab = document.createElement('div');
